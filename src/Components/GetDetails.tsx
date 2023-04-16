@@ -11,6 +11,7 @@ const Result = (props:any) => {
         functionName: 'positions',
         args:props.args,
     })
+    
     const RenderResult = (props:any) => {
         let keys:any = Object.keys(props.data)
         let values:any = Object.values(props.data)
@@ -42,7 +43,7 @@ const Result = (props:any) => {
 
 const GetDetails = () => {
     const [tokenId, setTokenId] = useState<any>("")
-    const [args,setArgs] = useState<any>(null)
+    const [args,setArgs] = useState<any>()
     const [showResult, setShowResult] =  useState<any>(false)
     useEffect(()=>{
         if(args !== "" || args !== null){
@@ -72,7 +73,7 @@ const GetDetails = () => {
                 onChange={(e:any)=>onChangeHandler(e)}
                 value={tokenId}
             />
-            <Button type="button" disabled={!tokenId} onClick={()=> onSubmit}>Get Details</Button>
+            <Button type="button" disabled={!tokenId} onClick={onSubmit}>Get Details</Button>
             {showResult &&  <Result args={args} /> }
         </Container>
     )

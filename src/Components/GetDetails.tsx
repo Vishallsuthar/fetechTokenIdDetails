@@ -11,12 +11,11 @@ const Result = (props:any) => {
         functionName: 'positions',
         args:props.args,
     })
-    
     const RenderResult = (props:any) => {
-        let keys:any = Object.keys(props.data)
-        let values:any = Object.values(props.data)
+        let keys:Array<any> = Object.keys(props.data)
+        let values:Array<any> = Object.values(props.data)
         return(<>
-                {keys.map((key:any,index:any)=>{
+                {keys.map((key:any,index:number)=>{
                     return (
                         <div key={`result_${index}`}> 
                             {key.toString()} : {values[index].toString()}
@@ -42,11 +41,11 @@ const Result = (props:any) => {
 }
 
 const GetDetails = () => {
-    const [tokenId, setTokenId] = useState<any>("")
-    const [args,setArgs] = useState<any>()
-    const [showResult, setShowResult] =  useState<any>(false)
+    const [tokenId, setTokenId] = useState<string>("")
+    const [args,setArgs] = useState<object>()
+    const [showResult, setShowResult] =  useState<boolean>(false)
     useEffect(()=>{
-        if(args !== "" || args !== null){
+        if( args !== null){
             setShowResult(true)
         }
     },[args])

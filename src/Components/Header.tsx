@@ -1,5 +1,5 @@
 import { ConnectKitButton } from "connectkit"
-const Header = ()=>{
+const Header = () => {
     return(
         <>
             <div className="d-flex w-100 p-3 py-2 mb-3 bg-primary justify-content-between align-items-center">
